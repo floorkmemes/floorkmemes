@@ -59,7 +59,11 @@ export default function FlorkMemBank() {
     { id: 45, name: '45.jpg', keywords: ['romantic', 'thought', 'pensée', 'amour'] },
     { id: 46, name: '46.jpg', keywords: ['worship', 'pray', 'adorer', 'prier'] },
     { id: 47, name: '47.jpg', keywords: ['cool', 'sunglasses', 'cool', 'lunettes'] },
-    { id: 48, name: '48.jpg', keywords: ['villain', 'evil', 'méchant', 'mauvais'] }
+    { id: 48, name: '48.jpg', keywords: ['villain', 'evil', 'méchant', 'mauvais'] },
+    { id: 49, name: '49.jpg', keywords: ['confused', 'question', 'confus', 'question'] },
+    { id: 50, name: '50.jpg', keywords: ['panic', 'scared', 'panique', 'effrayé'] },
+    { id: 51, name: '51.jpg', keywords: ['girl', 'neutral', 'fille', 'neutre'] },
+    { id: 52, name: '52.jpg', keywords: ['thug', 'adidas', 'racaille', 'adidas'] }
   ];
 
   // Filtrer les mèmes selon la recherche
