@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/floorkmemes/static/css/main.31d6cfe0.css",
+    "main.js": "/floorkmemes/static/js/main.cff3ff4f.js",
+    "static/js/453.71d32ece.chunk.js": "/floorkmemes/static/js/453.71d32ece.chunk.js",
+    "index.html": "/floorkmemes/index.html",
+    "main.cff3ff4f.js.map": "/floorkmemes/static/js/main.cff3ff4f.js.map",
+    "453.71d32ece.chunk.js.map": "/floorkmemes/static/js/453.71d32ece.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.31d6cfe0.css",
+    "static/js/main.cff3ff4f.js"
+  ]
+}
