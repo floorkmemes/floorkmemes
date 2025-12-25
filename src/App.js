@@ -1,5 +1,6 @@
 import { useState, useMemo } from 'react';
 import { Search, X, Moon, Sun, Copy, Download } from 'lucide-react';
+import Snowfall from 'react-snowfall';
 
 export default function FlorkMemBank() {
   const [search, setSearch] = useState('');
@@ -111,9 +112,11 @@ export default function FlorkMemBank() {
   return (
     <div style={{ fontFamily: FONT_FAMILY }} className={`min-h-screen ${bgClass} transition-colors duration-300`}>
       {/* Header */}
+      <Snowfall color="#82C3D9" snowflakeCount={100}/>
       <div className={`sticky top-0 z-50 ${bgClass} border-b ${borderClass} transition-colors duration-300`}>
         <div className="max-w-6xl mx-auto px-6 py-8">
           {/* Toggle tema */}
+	  <Snowfall color="#82C3D9" snowflakeCount={100}/>
           <div className="flex justify-end mb-6">
             <button
               onClick={() => setIsDark(!isDark)}
@@ -125,7 +128,7 @@ export default function FlorkMemBank() {
 
           {/* Titre au centre */}
           <h1 className={`text-5xl font-bold text-center tracking-wider ${textClass} mb-8`}>
-           FLORK MEMES
+           FLORK MEMES 🎄
           </h1>
           <p className={`text-xs italic text-center ${isDark ? 'text-gray-600' : 'text-gray-400'} mb-6`}>
             @m_vdbk idea :))
