@@ -130,9 +130,9 @@ export default function FlorkMemBank() {
           <h1 className={`text-5xl font-bold text-center tracking-wider ${textClass} mb-8`}>
            FLORK MEMES 🎄
           </h1>
-          <p className={`text-xs italic text-center ${isDark ? 'text-gray-600' : 'text-gray-400'} mb-6`}>
+          <p className={`text-xs italic text-center ${isDark ? 'text-gray-600' : 'text-gray-400'} mb-6`}><strong>
             @m_vdbk idea :))
-          </p>
+          </strong></p>
           {/* Barre de recherche */}
           <div className="relative max-w-2xl mx-auto">
             <Search className={`absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 ${isDark ? 'text-gray-600' : 'text-gray-400'}`} />
