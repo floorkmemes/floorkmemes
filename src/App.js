@@ -86,17 +86,29 @@ export default function FlorkMemBank() {
   const tagBgClass = isDark ? 'bg-gray-800 text-gray-300 hover:bg-gray-700' : 'bg-gray-100 text-gray-700 hover:bg-gray-200';
   const memeBoxClass = isDark ? 'bg-gray-900' : 'bg-gray-100';
 
-  const handleCopyImage = async (imageName) => {
+  const handleCopyLink = (imageName) => {
     try {
-      const img = await fetch(`/assets/imgs/${imageName}`);
-      const blob = await img.blob();
-      await navigator.clipboard.write([
-        new ClipboardItem({ 'image/png': blob })
-      ]);
+      const imageUrl = `${window.location.origin}/assets/imgs/${imageName}`;
+      
+      // Créer un textarea temporaire
+      const textarea = document.createElement('textarea');
+      textarea.value = imageUrl;
+      textarea.style.position = 'fixed';
+      textarea.style.opacity = '0';
+      document.body.appendChild(textarea);
+      
+      // Sélectionner et copier
+      textarea.select();
+      document.execCommand('copy');
+      
+      // Nettoyer
+      document.body.removeChild(textarea);
+      
       setCopied(imageName);
       setTimeout(() => setCopied(null), 2000);
     } catch (err) {
       console.error('Erreur lors de la copie:', err);
+      alert('Erreur lors de la copie du lien');
     }
   };
 
@@ -131,7 +143,7 @@ export default function FlorkMemBank() {
            FLORK MEMES 🎄
           </h1>
           <p className={`text-xs italic text-center ${isDark ? 'text-gray-600' : 'text-gray-400'} mb-6`}><strong>
-            @m_vdbk idea :))
+           @m_vdbk idea :)) 
           </strong></p>
           {/* Barre de recherche */}
           <div className="relative max-w-2xl mx-auto">
@@ -156,7 +168,7 @@ export default function FlorkMemBank() {
           <img src="https://emojis.slackmojis.com/emojis/images/1703244735/83772/flork30q.gif?1703244735" width="50"/>
           {/* Compteur de résultats */}
           <p className={`text-sm ${isDark ? 'text-gray-600' : 'text-gray-500'} mt-3 text-center`}>
-            {filtered.length} meme{filtered.length !== 1 ? 's' : ''} found{filtered.length !== 1 ? 's' : ''}
+            {filtered.length} meme{filtered.length !== 1 ? 's' : ''} found
           </p>
         </div>
       </div>
@@ -196,20 +208,20 @@ export default function FlorkMemBank() {
                       <button
                         onClick={(e) => {
                           e.stopPropagation();
-                          handleCopyImage(meme.name);
+                          handleCopyLink(meme.name);
                         }}
-                        className={`p-3 rounded-full transition ${
+                        className={`p-3 rounded-full transition relative ${
                           copied === meme.name
                             ? isDark ? 'bg-green-600' : 'bg-green-500'
                             : isDark ? 'bg-gray-700 hover:bg-gray-600' : 'bg-gray-300 hover:bg-gray-400'
-                        } text-white relative`}
-                        title="Copier l'image"
+                        } text-white`}
+                        title="Copy image link"
                       >
                         <Copy className="w-5 h-5" />
                         {copied === meme.name && (
-                          <span className={`absolute top-full mt-2 text-xs font-medium px-2 py-1 rounded whitespace-nowrap ${isDark ? 'bg-gray-800 text-green-400' : 'bg-gray-700 text-green-300'}`}>
-                            Copié !
-                          </span>
+                          <div className={`absolute bottom-full left-1/2 transform -translate-x-1/2 mb-3 text-xs font-medium px-2 py-1 rounded whitespace-nowrap z-10 ${isDark ? 'bg-gray-800 text-green-400' : 'bg-gray-700 text-green-300'}`}>
+                            Copied !
+                          </div>
                         )}
                       </button>
                       <button
@@ -218,7 +230,7 @@ export default function FlorkMemBank() {
                           handleDownloadImage(meme.name);
                         }}
                         className={`p-3 rounded-full transition ${isDark ? 'bg-gray-700 hover:bg-gray-600' : 'bg-gray-300 hover:bg-gray-400'} text-white`}
-                        title="Télécharger l'image"
+                        title="Download image"
                       >
                         <Download className="w-5 h-5" />
                       </button>
