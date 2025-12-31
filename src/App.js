@@ -1,6 +1,7 @@
 import { useState, useMemo } from 'react';
 import { Search, X, Moon, Sun, Copy, Download } from 'lucide-react';
 import Snowfall from 'react-snowfall';
+import Confetti from 'react-confetti';
 
 export default function FlorkMemBank() {
   const [search, setSearch] = useState('');
@@ -130,7 +131,7 @@ export default function FlorkMemBank() {
         <div className="max-w-6xl mx-auto px-6 py-8">
           {/* Toggle tema */}
 	  <Snowfall color="#82C3D9" snowflakeCount={100}/>
-	  </Confetti>
+	  <Confetti/>
           <div className="flex justify-end mb-6">
             <button
               onClick={() => setIsDark(!isDark)}
